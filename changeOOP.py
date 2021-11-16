@@ -6,10 +6,12 @@ class car:
     probeg = 100
     lamp = "off"
     doors = "close"
+    tank = 55
     def __init__(self,name):
         self.name = name
-    def set(self, name, color, year, probeg, lamp, doors):
+    def set(self, name, color, year, probeg, lamp, doors, tank):
         self.name = name
+        self.tank = tank
         self.color = color
         self.year = year
         self.probeg = probeg
@@ -25,17 +27,18 @@ def out(a1):
         print("3) Год выпуска машины -","    ", a[a1-1].year)
         print("4) Пробег машины (км) -","    ", a[a1-1].probeg,"км")
         print("5) Фары -","                  ", a[a1-1].lamp)
-        print("6) Двери -","                  ", a[a1-1].doors)
+        print("6) Двери -","                 ", a[a1-1].doors)
+        print("7) Объём бака -","            ", a[a1-1].tank)
         print("")
-        print("7) Изменить все параметры ")
-        print("8) Возврат к выбору машин ")
-        print("9) Выход ")
+        print("8) Изменить все параметры ")
+        print("9) Возврат к выбору машин ")
+        print("10) Выход ")
         ans2 = input("\n--> ")
-        if ans2 == "9" or ans2 == "!":
+        if ans2 == "10" or ans2 == "!":
             print("")
             flag = 0
             break
-        elif ans2 == "8":
+        elif ans2 == "9":
              global ans; ans = "2"; flag = 1; break
         elif ans2 == "1":
             a[a1-1].name = input("\nВведите название ")
@@ -56,12 +59,16 @@ def out(a1):
             a[a1-1].doors = input("\nВведите положение дверей (open/close) ")
             flag = 0
         elif ans2 == "7":
+            a[a1-1].tank = input("\nВведите объём бака ")
+            flag = 0
+        elif ans2 == "8":
             a[a1-1].name = input("Введите название ")
             a[a1-1].color = input("Введите цвет ")
             a[a1-1].year = input("Введите год ")
             a[a1-1].probeg = input("Введите пробег ")
             a[a1-1].lamp = input("Введите положение фар (вкл/выкл) ")
             a[a1-1].doors = input("\nВведите положение дверей (open/close) ")
+            a[a1-1].tank = input("Введите объём бака ")
             flag = 0
         else:
             print("\nТакого параметра не существует\n")
@@ -74,7 +81,8 @@ def out(a1):
             print("3) Год выпуска машины -","    ", a[a1-1].year)
             print("4) Пробег машины -","         ", a[a1-1].probeg,"км")
             print("5) Фары -","                  ", a[a1-1].lamp)
-            print("5) Двери -","                  ", a[a1-1].doors)
+            print("6) Двери -","                 ", a[a1-1].doors)
+            print("7) Объём бака -","            ", a[a1-1].tank)
             input("\nEnter\n")
 
 while 1 > 0:
