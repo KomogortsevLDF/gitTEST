@@ -4,15 +4,17 @@ class car:
     color = "Black"
     year = 1999
     probeg = 100
-    lamp = "выкл"
+    lamp = "off"
+    doors = "close"
     def __init__(self,name):
         self.name = name
-    def set(self, name, color, year, probeg, lamp):
+    def set(self, name, color, year, probeg, lamp, doors):
         self.name = name
         self.color = color
         self.year = year
         self.probeg = probeg
         self.lamp = lamp
+        self.doors = doors
 def out(a1):
     v = 1; global flag
     while v > 0:
@@ -23,16 +25,17 @@ def out(a1):
         print("3) Год выпуска машины -","    ", a[a1-1].year)
         print("4) Пробег машины (км) -","    ", a[a1-1].probeg,"км")
         print("5) Фары -","                  ", a[a1-1].lamp)
+        print("6) Двери -","                  ", a[a1-1].doors)
         print("")
-        print("6) Изменить все параметры ")
-        print("7) Возврат к выбору машин ")
-        print("8) Выход ")
+        print("7) Изменить все параметры ")
+        print("8) Возврат к выбору машин ")
+        print("9) Выход ")
         ans2 = input("\n--> ")
-        if ans2 == "8" or ans2 == "!":
+        if ans2 == "9" or ans2 == "!":
             print("")
             flag = 0
             break
-        elif ans2 == "7":
+        elif ans2 == "8":
              global ans; ans = "2"; flag = 1; break
         elif ans2 == "1":
             a[a1-1].name = input("\nВведите название ")
@@ -47,14 +50,18 @@ def out(a1):
             a[a1-1].probeg = input("\nВведите пробег ")
             flag = 0
         elif ans2 == "5":
-            a[a1-1].lamp = input("\nВведите положение фар (вкл/выкл) ")
+            a[a1-1].lamp = input("\nВведите положение фар (on/off) ")
             flag = 0
         elif ans2 == "6":
+            a[a1-1].doors = input("\nВведите положение дверей (open/close) ")
+            flag = 0
+        elif ans2 == "7":
             a[a1-1].name = input("Введите название ")
             a[a1-1].color = input("Введите цвет ")
             a[a1-1].year = input("Введите год ")
             a[a1-1].probeg = input("Введите пробег ")
             a[a1-1].lamp = input("Введите положение фар (вкл/выкл) ")
+            a[a1-1].doors = input("\nВведите положение дверей (open/close) ")
             flag = 0
         else:
             print("\nТакого параметра не существует\n")
@@ -67,6 +74,7 @@ def out(a1):
             print("3) Год выпуска машины -","    ", a[a1-1].year)
             print("4) Пробег машины -","         ", a[a1-1].probeg,"км")
             print("5) Фары -","                  ", a[a1-1].lamp)
+            print("5) Двери -","                  ", a[a1-1].doors)
             input("\nEnter\n")
 
 while 1 > 0:
